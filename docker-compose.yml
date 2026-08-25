@@ -1,0 +1,16 @@
+services:
+  repocket:
+    container_name: rocker
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      RP_EMAIL: ${RP_EMAIL}
+      RP_API_KEY: ${RP_API_KEY}
+
+  external-ip:
+    container_name: external-ip
+    image: cba44/external-ip:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
