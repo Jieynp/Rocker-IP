@@ -1,7 +1,9 @@
 services:
   repocket:
     container_name: rocker
-    image: repocket/repocket:latest
+    build:
+      dockerfile: Dockerfile
+    image: repocket-custom:latest
     restart: always
     environment:
       RP_EMAIL: ${RP_EMAIL}
